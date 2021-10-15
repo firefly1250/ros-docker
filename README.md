@@ -1,6 +1,1 @@
-# ros melodic docker environment
-
-```
-run.sh
-```
-
+docker-compose run --rm ros

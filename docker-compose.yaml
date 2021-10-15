@@ -2,6 +2,7 @@ version: "3"
 
 services:
   ros:
+    image: my-ros:foxy
     build:
       context: .
       dockerfile: Dockerfile
@@ -10,13 +11,7 @@ services:
       - ROS_HOSTNAME=ros
     hostname: ros
     volumes:
-      - ./home:$HOME
+      - ./home:/home/user
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
-      - /etc/passwd:/etc/passwd:ro
-      - /etc/group:/etc/group:ro
-      - /etc/shadow:/etc/shadow:ro
-      - /etc/sudoers.d:/etc/sudoers.d:ro
-    working_dir: $HOME
+    command: tmux
     tty: true
-    ports:
-      - "11311:11311"
